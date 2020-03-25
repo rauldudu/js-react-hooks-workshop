@@ -1,0 +1,21 @@
+.product-list {
+  a {
+    text-decoration: underline;
+  }
+}
+.product-list__cover {
+  height: 300px;
+  width: 100%;
+  object-fit: cover;
+  object-position: top;
+}
+
+.product-list__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.product-list__container {
+  list-style-type: none;
+}

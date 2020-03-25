@@ -1,0 +1,36 @@
+.checkout {
+  table {
+    margin-bottom: 4px;
+    width: 100%;
+    border-spacing: 0;
+    font-size: 14px;
+  }
+
+  th,
+  td {
+    border: 1px solid #cccccc;
+    text-align: center;
+  }
+
+  th {
+    background: #dddddd;
+  }
+
+  .checkout__total {
+    td,
+    td {
+      border: 0;
+    }
+  }
+}
+
+.checkout__delete {
+  border: none;
+  appearance: none;
+  cursor: pointer;
+}
+
+.checkout__footer {
+  display: flex;
+  justify-content: space-between;
+}

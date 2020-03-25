@@ -1,0 +1,27 @@
+.label-list {
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+}
+
+.label-list__item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-radius: 3px;
+  border: 1px solid #f2726e;
+  padding: 3px 3px 3px 8px;
+  color: #f2726e;
+  font-size: 12px;
+}
+
+.label-list__item + .label-list__item {
+  margin-left: 4px;
+}
+
+.label-list__item-btn {
+  appearance: none;
+  background: transparent;
+  color: #f2726e;
+  border: 0;
+}

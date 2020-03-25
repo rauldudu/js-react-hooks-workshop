@@ -1,0 +1,22 @@
+.product {
+  display: flex;
+  margin-top: 16px;
+  h3 {
+    margin-top: 0;
+  }
+  img {
+    max-width: 500px;
+    margin-right: 16px;
+    object-fit: cover;
+  }
+  p,
+  strong {
+    font-size: 14px;
+  }
+}
+
+.product__price {
+  color: #f2726e;
+  font-size: 22px !important;
+  font-weight: 600;
+}

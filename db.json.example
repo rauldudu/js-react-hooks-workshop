@@ -1,0 +1,77 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "title": "Stealth Bomber Jacket",
+      "description": "This is a demonstration store. You can purchase products like this from Sergeant Pepper Clothing Co.. Featuring the STEALTH zip up 2-in-1 quilted bomber jacket. This fatigue camo printed jacket portrays a traditional bomber silhouette and is constructed from high quality woven nylon. This style features detachable sleeves which lends itself to be worn as a sleeveless or full sleeved bomber. The finer details include a left chest chevron shield, SERGEANT PEPPER embroidered right sleeve applique and branded tag on the left sleeve pocket. An exceptional transitional item to have!",
+      "price": 23.99,
+      "image": "1.jpg",
+      "category": 1
+    },
+    {
+      "id": 2,
+      "title": "Arrow Shacket - Indigo",
+      "description": "Featuring the ARROW loose fitting shacket constructed from premium tencel. Finer details include oversized utility pockets with inverted pleats, welt pockets on the waist, branded buttons and Sergeant Pepper Pocket label.",
+      "price": 13.99,
+      "image": "2.jpg",
+      "category": 2
+    },
+    {
+      "id": 3,
+      "title": "Kim Short Sleeve Cropped Onesie",
+      "description": "Kim Short Sleeve Cropped Onesie by Kaarem. Relaxed fit, mid length, short sleeved onesie with a front box pleat, and a small v cut out at neck.",
+      "price": 379.98,
+      "image": "3.jpg",
+      "category": 3
+    },
+    {
+      "id": 4,
+      "title": "Louise Leotard in Electric Iris",
+      "description": "Louise Leotard in Electric Iris by Rodebjer. This body hugging leotard is designed with a plunging v-neck, which is ideal to layer with skirts and denim. It features an overlapping front, a slim-fit silhouette, single seam around the waist, and 3/4 length sleeves.",
+      "price": 49.99,
+      "image": "4.jpg",
+      "category": 3
+    },
+    {
+      "id": 5,
+      "title": "Buxton Jumpsuit in Sage",
+      "description": "Buxton Jumpsuit in Sage by Rachel Comey. This sleeveless v-neck jumpsuit is crafted out of the foam fabric with a straight fit on the body; also features a zip closure at front, horizontal welt pockets at sides, and a removable belt at waist.",
+      "price": 15.25,
+      "image": "5.jpg",
+      "category": 3
+    },
+    {
+      "id": 6,
+      "title": "Sack Jumper in Midnight",
+      "description": "Sack Jumper in Midnight by Black Crane. This full length cotton blend jumpsuit features a loose and relaxed fit, long sleeves, adjustable tie-waist, v-neckline with front button closure, and large parachute chest pockets at front.",
+      "price": 15.25,
+      "image": "6.jpg",
+      "category": 3
+    },
+    {
+      "id": 7,
+      "title": "Basho Bodysuit in Melange Dun",
+      "description": "Basho Bodysuit in Melange Dun by Shaina Mote. Crafted from soft, double-layered beige melange jersey, this long sleeve bodysuit features an asymmetrical neckline, draped side twist, adjustable crotch extender, snap closure, and a slip-on style.",
+      "price": 15.25,
+      "image": "7.jpg",
+      "category": 3
+    },
+    {
+      "id": 8,
+      "title": "Spoke Weekender Bag",
+      "description": "The Spoke Weekender Bag has been hand crafted in South Africa. It has been constructed from 100% Nylon waterproof fabric and built up with genuine rubber for protection and support. Some of the finer details include full leather handle straps for extra comfort and durability, hidden internal zip pockets and branded S.P.C.C metal clips.",
+      "price": 15.25,
+      "image": "8.jpg",
+      "category": 3
+    },
+    {
+      "id": 9,
+      "title": "Chrome Laptop Bag",
+      "description": "The Chrome Laptop Bag has been hand crafted in South Africa. It has been constructed from 100% Nylon waterproof fabric and built up with genuine rubber for protection and support. Some of the finer details include a padded shoulder sling strap, an internal padded laptop sleeve and fastner to keep your electronics safe and secure plus multiple utility zip pockets",
+      "price": 15.25,
+      "image": "9.jpg",
+      "category": 3
+    }
+  ],
+  "activities": []
+}
