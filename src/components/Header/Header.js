@@ -8,7 +8,7 @@ import './Header.scss'
 export default function Header() {
   const { items } = useContext(CartContext)
   const itemsCount = items.length
-  const total = useTotal()
+  const total = 0
 
   return (
     <header className="header">
