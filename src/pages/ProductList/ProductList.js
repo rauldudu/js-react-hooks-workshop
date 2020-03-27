@@ -1,14 +1,48 @@
 import React, { useState, useReducer, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import Spinner from '../../components/Spinner/Spinner'
-import { getFromLocalStorage, saveToLocalStorage } from '../../helpers/helpers'
-import fetchProducts from '../../api/fetchProducts'
+import { getFromLocalStorage, saveToLocalStorage } from '../../helpers/storage'
 import useTracker from '../../hooks/useTracker'
+import fetchProducts from '../../api/fetchProducts'
 import categories from '../../constants/categories.json'
 import CategoryList from '../../components/CategoryList/CategoryList'
 
 import './ProductList.scss'
 import ProductItem from '../../components/ProductItem/ProductItem'
+
+// getFromLocalStorage('categories')
+// saveToLocalStorage('categories', selectedCategories)
+
+// const reducer = (list, action) => {
+//   switch (action.type) {
+//     case 'toggle': {
+//       if (list.find(item => item.id === action.item.id)) {
+//         return list.filter(item => item.id !== action.item.id)
+//       } else {
+//         return [...list, action.item]
+//       }
+//     }
+//     case 'remove': {
+//       return list.filter(item => item.id !== action.item.id)
+//     }
+//     case 'reset': {
+//       return []
+//     }
+//     default:
+//       throw Error('Invalid Action!')
+//   }
+// }
+
+// useEffect(() => {
+//   fetchProducts().then(products => {
+//     setProducts(products)
+//     setIsLoading(false)
+//   })
+// }, [])
+
+// const [selectedCategories, setSelectedCategories] = useState([])
+// const [products, setProducts] = useState(null)
+// const [isLoading, setIsLoading] = useState(true)
 
 export default class ProductList extends React.Component {
   state = {
@@ -28,8 +62,6 @@ export default class ProductList extends React.Component {
       return <Spinner />
     }
 
-    console.log(this.state)
-
     const hasProducts = this.state.products && this.state.products.length > 0
 
     return (
@@ -41,12 +73,15 @@ export default class ProductList extends React.Component {
             selectedCategories={this.state.selectedCategories}
             onSelect={item => {
               // TODO
+              // dispatch({ type: 'toggle', item })
             }}
             onRemove={item => {
               // TODO
+              // dispatch({ type: 'remove', item })
             }}
             onReset={() => {
               // TODO
+              // dispatch({ type: 'reset' })
             }}
           />
         </div>

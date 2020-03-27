@@ -1,14 +1,17 @@
-import React, { useContext } from 'react'
-import { CartContext } from '../../contexts/Cart'
+import React from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { removeFromCart, resetCart } from '../../actions/cart/cart'
+import { calculateTotal } from '../../helpers/cart'
 import useTracker from '../../hooks/useTracker'
-import useTotal from '../../hooks/useTotal'
 
 import './Checkout.scss'
 
+// const dispatch = useDispatch()
+// const items = useSelector(state => state.cart)
+
 export default function Checkout() {
   const items = []
-  const dispatch = () => {}
-  const total = 0
+  const total = calculateTotal(items)
 
   return (
     <div className="checkout">
@@ -33,7 +36,7 @@ export default function Checkout() {
                       className="checkout__delete"
                       onClick={() => {
                         // TODO
-                        // dispatch({ type: 'remove', item })
+                        // dispatch(removeFromCart(item))
                       }}>
                       &#10006;
                     </button>
@@ -51,7 +54,7 @@ export default function Checkout() {
               className="btn-light"
               onClick={() => {
                 // TODO
-                // dispatch({ type: 'reset' })
+                // dispatch(resetCart())
               }}>
               Clear
             </button>

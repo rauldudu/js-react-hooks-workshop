@@ -1,10 +1,23 @@
-import React, { useContext, useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import Spinner from '../../components/Spinner/Spinner'
-import { CartContext } from '../../contexts/Cart'
+import { useDispatch } from 'react-redux'
 import useTracker from '../../hooks/useTracker'
+import { addToCart } from '../../actions/cart/cart'
 import fetchProduct from '../../api/fetchProduct'
 
 import './Product.scss'
+
+// const dispatch = useDispatch()
+
+// useEffect(() => {
+//   fetchProduct(id).then(product => {
+//     setIsLoading(false)
+//     setProduct(product)
+//   })
+// }, [id])
+
+// const [product, setProduct] = useState(null)
+// const [isLoading, setIsLoading] = useState(true)
 
 export default function Product({ id }) {
   const product = null
@@ -29,6 +42,7 @@ export default function Product({ id }) {
           className="btn-light"
           onClick={() => {
             // TODO
+            // dispatch(addToCart(product))
           }}>
           Add to Cart
         </button>
