@@ -13,90 +13,74 @@ import ProductItem from '../../components/ProductItem/ProductItem'
 // getFromLocalStorage('categories')
 // saveToLocalStorage('categories', selectedCategories)
 
-// const reducer = (list, action) => {
-//   switch (action.type) {
-//     case 'toggle': {
-//       if (list.find(item => item.id === action.item.id)) {
-//         return list.filter(item => item.id !== action.item.id)
-//       } else {
-//         return [...list, action.item]
-//       }
-//     }
-//     case 'remove': {
-//       return list.filter(item => item.id !== action.item.id)
-//     }
-//     case 'reset': {
-//       return []
-//     }
-//     default:
-//       throw Error('Invalid Action!')
-//   }
-// }
-
-// useEffect(() => {
-//   fetchProducts().then(products => {
-//     setProducts(products)
-//     setIsLoading(false)
-//   })
-// }, [])
-
-// const [selectedCategories, setSelectedCategories] = useState([])
-// const [products, setProducts] = useState(null)
-// const [isLoading, setIsLoading] = useState(true)
-
-export default class ProductList extends React.Component {
-  state = {
-    products: null,
-    isLoading: true,
-    selectedCategories: []
-  }
-
-  componentDidMount() {
-    fetchProducts().then(products => {
-      this.setState({ products: products, isLoading: false })
-    })
-  }
-
-  render() {
-    if (this.state.isLoading) {
-      return <Spinner />
+const reducer = (list, action) => {
+  switch (action.type) {
+    case 'toggle': {
+      if (list.find(item => item.id === action.item.id)) {
+        return list.filter(item => item.id !== action.item.id)
+      } else {
+        return [...list, action.item]
+      }
     }
-
-    const hasProducts = this.state.products && this.state.products.length > 0
-
-    return (
-      <div className="product-list">
-        <div className="product-list__header">
-          <h3>Products</h3>
-          <CategoryList
-            categories={categories}
-            selectedCategories={this.state.selectedCategories}
-            onSelect={item => {
-              // TODO
-              // dispatch({ type: 'toggle', item })
-            }}
-            onRemove={item => {
-              // TODO
-              // dispatch({ type: 'remove', item })
-            }}
-            onReset={() => {
-              // TODO
-              // dispatch({ type: 'reset' })
-            }}
-          />
-        </div>
-        {hasProducts ? (
-          <ul className="product-list__container">
-            {this.state.products.map(product => (
-              <li key={product.id}>
-                <ProductItem product={product} />
-              </li>
-            ))}
-          </ul>
-        ) : (
-          <h3>No products found!</h3>
-        )}
-      </div>
-    )
+    case 'remove': {
+      return list.filter(item => item.id !== action.item.id)
+    }
+    case 'reset': {
+      return []
+    }
+    default:
+      throw Error('Invalid Action!')
   }
+}
+
+export default function ProductList() {
+  useTracker('ProductList')
+
+  const [selectedCategories, dispatch] = useReducer(
+    reducer,
+    getFromLocalStorage('categories')
+  )
+  const [products, setProducts] = useState(null)
+  const [isLoading, setIsLoading] = useState(true)
+
+  useEffect(() => {
+    saveToLocalStorage('categories', selectedCategories)
+
+    fetchProducts(selectedCategories).then(products => {
+      setIsLoading(false)
+      setProducts(products)
+    })
+  }, [selectedCategories])
+
+  if (isLoading) {
+    return <Spinner />
+  }
+
+  const hasProducts = products && products.length > 0
+
+  return (
+    <div className="product-list">
+      <div className="product-list__header">
+        <h3>Products</h3>
+        <CategoryList
+          categories={categories}
+          selectedCategories={selectedCategories}
+          onSelect={item => dispatch({ type: 'toggle', item })}
+          onRemove={item => dispatch({ type: 'remove', item })}
+          onReset={() => dispatch({ type: 'reset' })}
+        />
+      </div>
+      {hasProducts ? (
+        <ul className="product-list__container">
+          {products.map(product => (
+            <li key={product.id}>
+              <ProductItem product={product} />
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <h3>No products found!</h3>
+      )}
+    </div>
+  )
 }

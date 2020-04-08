@@ -5,10 +5,8 @@ import { Link } from 'react-router-dom'
 import './Header.scss'
 import { useSelector } from 'react-redux'
 
-// const items = useSelector(state => state.cart)
-
 export default function Header() {
-  const items = []
+  const items = useSelector(state => state.cart)
   const total = calculateTotal(items)
 
   return (

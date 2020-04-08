@@ -7,21 +7,25 @@ import fetchProduct from '../../api/fetchProduct'
 
 import './Product.scss'
 
-// const dispatch = useDispatch()
+const useProduct = id => {
+  const [product, setProduct] = useState(null)
+  const [isLoading, setIsLoading] = useState(true)
 
-// useEffect(() => {
-//   fetchProduct(id).then(product => {
-//     setIsLoading(false)
-//     setProduct(product)
-//   })
-// }, [id])
+  useEffect(() => {
+    fetchProduct(id).then(product => {
+      setIsLoading(false)
+      setProduct(product)
+    })
+  }, [id])
 
-// const [product, setProduct] = useState(null)
-// const [isLoading, setIsLoading] = useState(true)
+  return [product, isLoading]
+}
 
 export default function Product({ id }) {
-  const product = null
-  const isLoading = true
+  useTracker('Product')
+
+  const [product, isLoading] = useProduct(id)
+  const dispatch = useDispatch()
 
   if (isLoading) {
     return <Spinner />
@@ -41,8 +45,7 @@ export default function Product({ id }) {
         <button
           className="btn-light"
           onClick={() => {
-            // TODO
-            // dispatch(addToCart(product))
+            dispatch(addToCart(product))
           }}>
           Add to Cart
         </button>

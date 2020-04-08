@@ -6,12 +6,12 @@ import useTracker from '../../hooks/useTracker'
 
 import './Checkout.scss'
 
-// const dispatch = useDispatch()
-// const items = useSelector(state => state.cart)
-
 export default function Checkout() {
-  const items = []
+  useTracker('Checkout')
+
+  const items = useSelector(state => state.cart)
   const total = calculateTotal(items)
+  const dispatch = useDispatch()
 
   return (
     <div className="checkout">
@@ -35,8 +35,7 @@ export default function Checkout() {
                     <button
                       className="checkout__delete"
                       onClick={() => {
-                        // TODO
-                        // dispatch(removeFromCart(item))
+                        dispatch(removeFromCart(item))
                       }}>
                       &#10006;
                     </button>
@@ -53,8 +52,7 @@ export default function Checkout() {
             <button
               className="btn-light"
               onClick={() => {
-                // TODO
-                // dispatch(resetCart())
+                dispatch(resetCart())
               }}>
               Clear
             </button>
